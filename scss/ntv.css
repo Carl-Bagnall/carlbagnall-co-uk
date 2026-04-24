@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css?family=Heebo:400,700");
+/******* VARIABLES *******/
+/*** Color ***/
+/*** Fonts ***/
+.header-image {
+  box-sizing: border-box;
+  width: 100%;
+  background: url("../images/NTV-banner.png");
+  background-size: cover;
+  background-position: center;
+  height: 500px; }
+
+.project-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(64px, 1fr)); }
+  .project-info div {
+    width: 100%;
+    font-family: "Heebo", Open Sans, Helvetica, Arial, sans-serif;
+    color: #333;
+    font-size: 16px; }
+    .project-info div span {
+      font-weight: 400;
+      display: block;
+      font-size: 13px;
+      color: #FA5A13;
+      line-height: 24px; }
+
+.project-info-container {
+  margin-bottom: 32px;
+  padding-left: 64px;
+  padding-right: 64px; }
+
+.project-text-container{
+  margin: 24px 100px 24px 100px;
+}
+
+.project-article {
+  max-width: 880px;
+  padding-left: 64px;
+  padding-right: 64px;
+  margin: 64px auto 120px; }
+  .project-article p {
+    font-family: "Heebo", Open Sans, Helvetica, Arial, sans-serif;
+    color: #333;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 0 100px; }
+  .project-article img {
+    width: 100%;
+    margin: 32px 0;
+    object-fit: cover;
+    display: block; }
+  .project-article a{
+    font-family: "Heebo", Open Sans, Helvetica, Arial, sans-serif;
+    color: #FFF;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight:500;
+    display:inline;
+    padding:6px 12px;
+    border-radius:4px;
+    text-decoration:none;
+    background:#FA5A13
+}
+
+.project-article a:hover{
+    background:#ea5614;
+  }
+
+.project-article a i {
+    margin: 0 0 0 8px;
+    font-size: 10px;
+}
+
+/*# sourceMappingURL=pom.css.map */
