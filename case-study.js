@@ -31,3 +31,8 @@ document.querySelectorAll(
   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   observer.observe(el);
 });
+
+// Auto-update copyright year so the footer never goes stale
+document.querySelectorAll('.js-year').forEach(el => {
+  el.textContent = new Date().getFullYear();
+});

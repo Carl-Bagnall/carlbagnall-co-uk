@@ -668,7 +668,7 @@
       <a href="https://www.linkedin.com/in/carl-bagnall-45b8b7b5" target="_blank" rel="noopener">LinkedIn</a>
     </nav>
 
-    <span class="footer-copy">© 2026 carlbagnall.co.uk</span>
+    <span class="footer-copy">© <span class="js-year">2026</span> carlbagnall.co.uk</span>
   </footer>
 
   <!-- ── JS ─────────────────────────────────────────────────── -->
@@ -705,6 +705,11 @@
       el.style.transform = 'translateY(16px)';
       el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
       observer.observe(el);
+    });
+
+    // Auto-update copyright year so the footer never goes stale
+    document.querySelectorAll('.js-year').forEach(el => {
+      el.textContent = new Date().getFullYear();
     });
   </script>
 
