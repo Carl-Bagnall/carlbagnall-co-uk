@@ -36,3 +36,50 @@ document.querySelectorAll(
 document.querySelectorAll('.js-year').forEach(el => {
   el.textContent = new Date().getFullYear();
 });
+
+// ── Image lightbox ──────────────────────────────────────────
+const lightbox = document.createElement('div');
+lightbox.className = 'lightbox';
+lightbox.setAttribute('role', 'dialog');
+lightbox.setAttribute('aria-modal', 'true');
+lightbox.setAttribute('aria-label', 'Image viewer');
+lightbox.innerHTML =
+  '<button class="lightbox-close" aria-label="Close image viewer">Close ×</button>' +
+  '<img alt="" />';
+document.body.appendChild(lightbox);
+
+const lbImg = lightbox.querySelector('img');
+const lbClose = lightbox.querySelector('.lightbox-close');
+
+function openLightbox(src, alt) {
+  lbImg.src = src;
+  lbImg.alt = alt || '';
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if (cursor) cursor.classList.remove('hover');
+}
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => { lbImg.src = ''; }, 300);
+}
+
+document.querySelectorAll('.case-figure img').forEach(img => {
+  img.addEventListener('click', () => openLightbox(img.src, img.alt));
+  if (cursor) {
+    img.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+    img.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+  }
+});
+
+lbClose.addEventListener('click', closeLightbox);
+if (cursor) {
+  lbClose.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+  lbClose.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+}
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+});
